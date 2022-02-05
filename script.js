@@ -1,9 +1,12 @@
 let input = document.querySelector("#input");
 
 let fetchData = async () => {
-  let req = await fetch(
-    "http://universities.hipolabs.com/search?&country=canada"
-  );
+  let req = await fetch("https://api.jsonbin.io/b/61feb2c469b72261be513619", {
+    // mode: "cors", // no-cors, *cors, same-origin
+    // credentials: "same-origin", // include, *same-origin, omit
+    // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  });
+
   let res = await req.json();
   names = res.map((e) => {
     document.getElementById("users").innerHTML += `
